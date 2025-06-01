@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #ff1493;
+    text-align: center;
+    background: url('https://i.imgur.com/5tR6OEA.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 36px;
+    margin-top: 40px;
+    color: #db2c2c;
+    text-shadow: 5px 5px 10px #000;
+}
+
+button {
+    padding: 20px;
+    font-size: 18px;
+    background: linear-gradient(45deg, #ff69b4, #ff1493);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 10px 40px 30px rgba(5,5,5,0.3);
+    transition: transform 0.2s;
+    margin-top: 50px;
+}
+
+button:hover {
+    transform: scale(1.2);
+}
+
+#teddy {
+    width: 200px;
+    display: none;
+    margin-top: 20px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.kiss {
+    transform: scale(1.2);
+}
+
+#cloudy-message {
+    display: none;
+    background: rgb(232, 113, 180);
+    padding: 15px 25px;
+    border-radius: 40px;
+    max-width: 500px;
+    max-height: 60px;
+    margin:20px auto;
+    box-shadow: 30px 30px 40px rgba(0,0,0,0.2);
+    position: relative;
+    font-size: 13px;
+    color: #db2c2c;
+    text-align: center;
+    line-height: 1;
+}
+
+#cloudy-message::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px 10px 0 10px;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.8) transparent transparent transparent;
+}
+
+/* Bubble container fills entire viewport */
+#bubble-container {
+    pointer-events: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: visible;
+    z-index: 9999;
+}
+
+/* Bubbles start exactly at bottom and float upward */
+.bubble {
+    position: fixed;
+    bottom: 0;       /* start from bottom */
+    user-select: none;
+    animation-name: rise;
+    animation-duration: 10s;
+    animation-timing-function:cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-120vh);
+        opacity: 0;
+    }
+}

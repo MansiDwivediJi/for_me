@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>For My Love Mansi Dwivedi 💖</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <h1>Welcome, My Love 💋<br>My Wife 💖<br>Mansi Dwivedi 💖</h1>
+    <button onclick="kissMyLove()">Click here 😘 and be happy now please</button>
+
+    <div>
+        <img src="./kiss-kissing.webp" id="teddy" alt="Teddy" />
+    </div>
+
+    <div id="cloudy-message">
+        <p id="message">
+            I love you baby💖<br />
+            uummmmmmmaaaahh💋<br />
+            baby apko pta hai na agr aap gandi bat kroge to pit jaoge , got it !<br />
+            now kiss me and be happy 😘💖
+        </p>
+    </div>
+
+    <div id="bubble-container"></div>
+
+    <script>
+        function kissMyLove() {
+            const teddy = document.getElementById('teddy');
+            const cloudyMessage = document.getElementById('cloudy-message');
+            const bubbleContainer = document.getElementById('bubble-container');
+
+            teddy.style.display = 'inline-block';
+            cloudyMessage.style.display = 'block';
+            teddy.classList.add('kiss');
+
+            setTimeout(() => teddy.classList.remove('kiss'), 1000);
+
+            for (let i = 0; i < 30; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                const emojis = ['💖', '😘', '💋'];
+                bubble.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                bubble.style.left = Math.random() * 100 + 'vw';
+                bubble.style.fontSize = (20 + Math.random() * 20) + 'px';
+                // Add random animation delay so bubbles float randomly
+                bubble.style.animationDelay = (Math.random() * 5) + 's';
+                bubbleContainer.appendChild(bubble);
+
+                setTimeout(() => bubble.remove(), 6000);
+            }
+        }
+    </script>
+
+</body>
+</html>
